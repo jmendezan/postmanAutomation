@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e4bb642b-97e4-4b58-bed4-07cbf24d3102",
+		"_postman_id": "cb4d6662-f58f-4a31-b682-d1c4768cac0f",
 		"name": "Restful Booker BVT",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -24,8 +24,7 @@
 									"    // https://www.chaijs.com/api/bdd",
 									"    pm.expect(jsonData).to.not.have.lengthOf(0);",
 									"});",
-									"",
-									"postman.setNextRequest(\"Ping\")"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -1128,12 +1127,7 @@
 						"exec": [
 							"pm.test(\"Ping is successful\", function () {",
 							"    pm.response.to.be.success;",
-							"});",
-							"",
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"postman.setNextRequest(null); // --> To stop execution of the monitor at this point"
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -1178,19 +1172,8 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "x-mock-response-name",
-						"value": "Auth1",
-						"type": "text"
-					},
-					{
 						"key": "Content-Type",
 						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"value": "",
-						"type": "text",
-						"disabled": true
 					}
 				],
 				"body": {
@@ -1207,76 +1190,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Auth1",
-					"originalRequest": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\" : \"admin\",\n    \"password\" : \"password123\"\n}"
-						},
-						"url": {
-							"raw": "{{rb_url}}/auth",
-							"host": [
-								"{{rb_url}}"
-							],
-							"path": [
-								"auth"
-							]
-						}
-					},
-					"status": "Bad Request",
-					"code": 400,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": "{\r\n    \"token\": \"7c88b3bbf04872b\"\r\n}"
-				},
-				{
-					"name": "Auth2_tokenMissing",
-					"originalRequest": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\" : \"admin\",\n    \"password\" : \"password123\"\n}"
-						},
-						"url": {
-							"raw": "{{rb_url}}/auth?=",
-							"host": [
-								"{{rb_url}}"
-							],
-							"path": [
-								"auth"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": ""
-								}
-							]
-						}
-					},
-					"status": "Bad Request",
-					"code": 400,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": "{\r\n    \"token\": \"\"\r\n}"
-				}
-			]
+			"response": []
 		},
 		{
 			"name": "Delete Booking",
